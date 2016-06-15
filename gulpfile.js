@@ -2,6 +2,7 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
 var autoprefix  = require('gulp-autoprefixer');
+var htmlmin     = require('gulp-htmlmin');
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['html', 'media', 'sass'], function() {
@@ -16,6 +17,7 @@ gulp.task('serve', ['html', 'media', 'sass'], function() {
 
 gulp.task('html', function() {
   return gulp.src("src/html/*.html")
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest("app"));
 });
 
@@ -28,7 +30,7 @@ gulp.task('media', function() {
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
     return gulp.src("src/scss/*.scss")
-      .pipe(sass())
+      .pipe(sass({ outputStyle: 'compressed' }))
       .pipe(autoprefix())
       .pipe(gulp.dest("app"))
       .pipe(browserSync.stream());
