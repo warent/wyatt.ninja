@@ -1,0 +1,91 @@
+$color-left: #eee;
+$color-right: #aea;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Roboto';
+}
+
+.side {
+  min-height: 540px;
+}
+
+img {
+  width: 100pt;
+  height: 100pt;
+  border-radius: 100%;
+  border: 4pt solid $color-left;
+  margin-left: -52pt;
+  z-index: 10;
+  pointer-events: none;
+}
+
+h1 {
+  max-width: 25vw;
+  color: black;
+  position: relative;
+  margin-right: 20pt;
+  float: right;
+  z-index: 10;
+  text-align: right;
+}
+
+#image-pad {
+  padding-top: 50pt;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: auto;
+}
+
+.fa {
+  font-size: 20pt;
+  padding: 10pt;
+  &:hover {
+    cursor: pointer;
+    color: $color-right;
+  }
+}
+
+#left {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  position: absolute;
+  background-color: $color-left;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 50vw;
+
+  #link-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+}
+
+#right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  background-color: $color-right;
+  top: 0;
+  bottom: 0;
+  left: 50vw;
+  right: 0;
+
+  h2 {
+    padding-left: 10px;
+  }
+}
